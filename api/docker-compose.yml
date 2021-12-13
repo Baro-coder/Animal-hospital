@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: 'postgres'
+    image: "postgres:12"
+    environment:
+      POSTGRES_USER: "dev"
+      POSTGRES_PASSWORD: "dev"
+      POSTGRES_DB: "dev"
+    volumes:
+      - "./pg/postgres.conf:/usr/local/etc/postgres/postgres.conf"
+      - "./pg/data:/var/lib/postgresql/data:delegated"
+    ports:
+      - "5432:5432"
+  api:
+    container_name: 'api'
+    image: "myapi:latest"
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/dev
+      POSTGRES_USERNAME: dev
+      POSTGRES_PASSWORD: dev
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres

@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Animal Hospital</string>
+    <string name="_signInPl">Logowanie</string>
+    <string name="_registerPl">Rejestracja</string>
+    <string name="_toSignInPl">Zaloguj</string>
+    <string name="_toRegisterPl">Zarejestruj</string>
+    <string name="_mail">E-mail</string>
+    <string name="_namePl">Imię</string>
+    <string name="_surnamePl">Nazwisko</string>
+    <string name="_nameHeaderPl">Imię:</string>
+    <string name="_surnameHeaderPl">Nazwisko:</string>
+    <string name="_passwdPl">Hasło</string>
+    <string name="_passwdConfirmPl">Potwierdź hasło</string>
+    <string name="_passwdHeaderPl">Hasło:</string>
+    <string name="_passwdConfirmHeaderPl">Potwierdź hasło:</string>
+    <string name="_chooseAccountTypePl">Wybierz typ konta:</string>
+    <string name="_doctorPl">LEKARZ</string>
+    <string name="_clientPl">KLIENT</string>
+    <string name="_addVisitPl">Dodaj Wiziytę</string>
+    <string name="_addPl">Dodaj</string>
+    <string name="_ConfirmPl">Zatwierdź</string>
+    <string name="_visitListPl">Wizyty:</string>
+    <string name="_chooseDoctorHeaderPl">Wybierz lekarza</string>
+    <string name="_chooseClientHeaderPl">Wybierz klienta</string>
+    <string name="_clientHeaderPl">Klient:</string>
+    <string name="_doctorHeaderPl">Lekarz:</string>
+    <string name="_delVisitPl">Usuń Wizytę</string>
+    <string name="_issueDescriptionPl">Opis problemu:</string>
+    <string name="_fulldatePl">Termin:</string>
+    <string name="_breedPl">Rasa:</string>
+    <string name="_agePl">Wiek:</string>
+
+    <string name="_dateHint">RRRR-MM-DD</string>
+    <string name="_hoursHint">GG</string>
+    <string name="_minutesHint">MM</string>
+
+    <string name="_fillTheGapsPl">Uzupełnij wszystkie pola</string>
+    <string name="_passwdConfirmErrorPl">Podane hasła nie są zgodne</string>
+    <string name="_wrongCredentialsPL">Podano błędne dane</string>
+    <string name="_visitDeletedPL">Usunięto wizytę</string>
+    <string name="_registeredPL">Zarejestrowano</string>
+    <string name="_loginedPL">Zalogowano</string>
+    <string name="_clientVisitAddedPL">Dodano wizytę</string>
+    <string name="_doctorVisitAddedPL">Dodano wizytę do zatwierdzenia</string>
+    <string name="_visitConfirmedPL">Zatwierdzono wizytę</string>
+
+    <string name="_showDetails">Pokaż szczegóły</string>
+    <string name="_fillTheVisitPL">Uzupełnij</string>
+</resources>

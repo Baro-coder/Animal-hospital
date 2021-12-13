@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: backend-service
+
+  datasource:
+    url: "${POSTGRES_URL:jdbc:postgresql://localhost:5432/dev}"
+    username: "${POSTGRES_USERNAME:dev}"
+    password: "${POSTGRES_PASSWORD:dev}"
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        default_schema: public
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+  liquibase:
+    change-log: classpath:liquibase-changelog.xml

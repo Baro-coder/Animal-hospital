@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="PW">
+        <sql>
+            CREATE TABLE users (
+            email varchar NOT NULL,
+            name varchar NULL,
+            surname varchar NULL,
+            "password" varchar NULL,
+            account_type varchar NULL,
+            CONSTRAINT users_pk PRIMARY KEY (email)
+            );
+
+
+            CREATE TABLE visits (
+            id varchar NOT NULL,
+            client_mail varchar NOT NULL,
+            doctor_mail varchar NOT NULL,
+            animal_age float4 NULL,
+            animal_breed varchar NULL,
+            "time" timestamp NULL,
+            CONSTRAINT visits_pk PRIMARY KEY (id)
+            );
+
+
+            ALTER TABLE visits ADD CONSTRAINT visits_fk FOREIGN KEY (client_mail) REFERENCES users(email);
+            ALTER TABLE visits ADD CONSTRAINT visits_fk_1 FOREIGN KEY (doctor_mail) REFERENCES users(email);
+            ALTER TABLE public.visits ADD description varchar NULL;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

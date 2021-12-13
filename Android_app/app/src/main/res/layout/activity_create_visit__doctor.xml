@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.doctor.CreateVisit_Doctor">
+
+    <TextView
+        android:id="@+id/text_fulldateHeader"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="@string/_fulldatePl"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_date"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="281dp"
+        android:layout_height="56dp"
+        android:text="@string/_addPl"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_date"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <EditText
+        android:id="@+id/edit_date"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="@string/_dateHint"
+        android:inputType="date"
+        app:layout_constraintEnd_toStartOf="@+id/edit_hours"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_hours"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="@string/_hoursHint"
+        android:inputType="datetime"
+        app:layout_constraintEnd_toStartOf="@+id/edit_minutes"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_minutes"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/_minutesHint"
+        android:inputType="datetime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
