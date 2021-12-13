@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+api/pg/data/pg_stat_tmp/db_0.stat
+api/pg/data/pg_stat_tmp/db_16384.stat
+api/pg/data/pg_stat_tmp/global.stat
