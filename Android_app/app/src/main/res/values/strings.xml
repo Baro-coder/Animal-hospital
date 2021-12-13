@@ -43,7 +43,10 @@
     <string name="_clientVisitAddedPL">Dodano wizytę</string>
     <string name="_doctorVisitAddedPL">Dodano wizytę do zatwierdzenia</string>
     <string name="_visitConfirmedPL">Zatwierdzono wizytę</string>
+    <string name="_dateIncorrectPL">Podano nieprawidłowy termin</string>
+    <string name="_dateIncorrectFormatPL">Podano zły format daty</string>
 
     <string name="_showDetails">Pokaż szczegóły</string>
     <string name="_fillTheVisitPL">Uzupełnij</string>
+    <string name="_notConfirmed">Niezatwierdzona</string>
 </resources>

@@ -20,6 +20,7 @@ class VisitNotComplete : AppCompatActivity() {
     private lateinit var btnCnf: Button
     private lateinit var clientMail: String
     private lateinit var doctorMail: String
+    private lateinit var timeToReq: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,15 +63,13 @@ class VisitNotComplete : AppCompatActivity() {
                 }
                 else
                 {
-                    var time = timeBox.text.toString()
-
                     val url2 = "$BASEURL/visits"
                     val params = HashMap<String, String>()
                     params["client"] = clientMail
                     params["doctor"] = doctorMail
                     params["animalAge"] = ageBox.text.toString()
                     params["animalBreed"] = breedBox.text.toString()
-                    params["time"] = time
+                    params["time"] = this.timeToReq
                     params["description"] = descBox.text.toString()
                     val jsonObject = JSONObject(params as Map<*, *>)
                     val request = JsonObjectRequest(Request.Method.POST, url2, jsonObject,
@@ -80,6 +79,7 @@ class VisitNotComplete : AppCompatActivity() {
                             Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show()
                         })
                     queue.add(request)
+                    finish()
                 }
             }
         }
@@ -98,16 +98,22 @@ class VisitNotComplete : AppCompatActivity() {
 
             val newString = strRes.replace("}","").replace("{","").replace("[","").replace("]","").replace("\"" , "")
             val list = newString.split("," , ":").toTypedArray()
+            val listTime = newString.split(",").toTypedArray()
             val n = list.size
+            val m = listTime.size
             for (i in 0 until n) {
-                if (list[i] == "client"){
+                if (list[i] == "client") {
                     clientMail = list[i + 1]
                 }
-                if (list[i] == "doctor"){
+                if (list[i] == "doctor") {
                     doctorMail = list[i + 1]
                 }
-                if (list[i] == "time"){
-                    time = list[i + 1].replace("T", ":")
+            }
+            for (j in 0 until m) {
+                if (listTime[j].contains("time:")){
+                    this.timeToReq = listTime[j].replace("time:", "")
+                    listTime[j] = listTime[j].substring(0, 21)
+                    time = listTime[j].replace("time:", "").replace("T", " ")
                 }
             }
             findViewById<TextView>(R.id.text_fulldate).text = time

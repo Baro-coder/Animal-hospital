@@ -19,7 +19,6 @@ class ChooseDoctor : AppCompatActivity() {
         setContentView(R.layout.activity_choose_doctor)
 
         val clientMail = intent.getStringExtra("email").toString()
-        Toast.makeText(this, clientMail, Toast.LENGTH_LONG).show()
 
         getDoctorsList(clientMail)
     }

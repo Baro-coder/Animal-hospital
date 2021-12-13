@@ -48,40 +48,32 @@ class ClientDashboard : AppCompatActivity() {
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
             val strRes = response.toString()
-            val list = strRes.split("},{")
-            val x = list.size
             val time: MutableList<String> = ArrayList()
             val visitID: MutableList<String> = ArrayList()
             val complete: MutableList<Int> = ArrayList()
 
-            for (i in 0 until x){
-                val newString = list[i].replace("}","").replace("{","").replace("}","").replace("]","").replace("[","").replace(" ","").replace("\"","")
-                val strs = newString.split("," , ":").toTypedArray()
-
-                val y = strs.size
-                for (k in 0 until y){
-                    if (strs[k] == "id"){
-                        visitID.add(strs[k+1])
-                    }
-                    if (strs[k] == "description"){
-                        if (strs[k+1] == ""){
-                            complete.add(1)
-                        }
-                        else{
-                            complete.add(0)
-                        }
-                    }
-                    if (strs[k] == "time"){
-                        strs[k+1] = strs[k+1].replace("T", ":")
-                        strs[k+1] += "\t\t\t\t\t\t\t\t\t\t\t\t"
-                        time.add(strs[k+1])
-                    }
+            val newString = strRes.replace("}", "").replace("{", "").replace("}", "").replace("]", "").replace("[", "").replace(" ", "").replace("\"", "")
+            val strs = newString.split(",").toTypedArray()
+            val idStrs = newString.split(",", ":").toTypedArray()
+            val y = strs.size
+            val x = idStrs.size
+            for (k in 0 until x) {
+                if (idStrs[k] == "id") {
+                    visitID.add(idStrs[k + 1])
                 }
-                if(complete[i] == 0){
-                    time[i] += resources.getString(R.string._showDetails)
-                }
-                else{
-                    time[i] += resources.getString(R.string._fillTheVisitPL)
+            }
+            for (k in 0 until y) {
+                if (strs[k].contains("time")) {
+                    strs[k] = strs[k].substring(0, 21)
+                    if (strs[k+1] == "description:"){
+                        complete.add(0)
+                        strs[k] = "${strs[k]}\t\t\t\t\t\t\t\t\t\t\t\t${resources.getString(R.string._fillTheVisitPL)}"
+                    }
+                    else{
+                        complete.add(1)
+                        strs[k] = "${strs[k]}\t\t\t\t\t\t\t\t\t\t\t\t${resources.getString(R.string._showDetails)}"
+                    }
+                    time.add(strs[k].replace("time:", "").replace("T", " "))
                 }
             }
 
@@ -91,12 +83,11 @@ class ClientDashboard : AppCompatActivity() {
             visitList.adapter = arrayAdapter
 
             visitList.setOnItemClickListener { parent, view, position, id ->
-                if (complete[position] == 0){
+                if (complete[position] == 1) {
                     val intent = Intent(this, VisitComplete::class.java)
                     intent.putExtra("visitID", visitID[position])
                     startActivity(intent)
-                }
-                else{
+                } else {
                     val intent = Intent(this, VisitNotComplete::class.java)
                     intent.putExtra("visitID", visitID[position])
                     startActivity(intent)

@@ -48,26 +48,32 @@ class DoctorDashboard : AppCompatActivity() {
 
         val stringRequest = StringRequest(Request.Method.GET, url, { response ->
             val strRes = response.toString()
-            val list = strRes.split("},{")
-            val x = list.size
             val time: MutableList<String> = ArrayList()
             val visitID: MutableList<String> = ArrayList()
+            val complete: MutableList<Int> = ArrayList()
 
-            for (i in 0 until x){
-                val newString = list[i].replace("}","").replace("{","").replace("}","").replace("]","").replace("[","").replace(" ","").replace("\"","")
-                val strs = newString.split("," , ":").toTypedArray()
-
-                val y = strs.size
-                for (k in 0 until y){
-                    if (strs[k] == "id"){
-                        visitID.add(strs[k+1])
+            val newString = strRes.replace("}", "").replace("{", "").replace("}", "").replace("]", "").replace("[", "").replace(" ", "").replace("\"", "")
+            val strs = newString.split(",").toTypedArray()
+            val idStrs = newString.split(",", ":").toTypedArray()
+            val y = strs.size
+            val x = idStrs.size
+            for (k in 0 until x) {
+                if (idStrs[k] == "id") {
+                    visitID.add(idStrs[k + 1])
+                }
+            }
+            for (k in 0 until y) {
+                if (strs[k].contains("time")) {
+                    strs[k] = strs[k].substring(0, 21)
+                    if (strs[k+1] == "description:"){
+                        complete.add(0)
+                        strs[k] = "${strs[k]}\t\t\t\t\t\t\t\t\t\t\t\t${resources.getString(R.string._fillTheVisitPL)}"
                     }
-                    if (strs[k] == "time"){
-                        strs[k+1] = strs[k+1].replace("T", ":")
-                        strs[k+1] += "\t\t\t\t\t\t\t\t\t\t\t\t"
-                        strs[k+1] += resources.getString(R.string._showDetails)
-                        time.add(strs[k+1])
+                    else{
+                        complete.add(1)
+                        strs[k] = "${strs[k]}\t\t\t\t\t\t\t\t\t\t\t\t${resources.getString(R.string._showDetails)}"
                     }
+                    time.add(strs[k].replace("time:", "").replace("T", " "))
                 }
             }
 

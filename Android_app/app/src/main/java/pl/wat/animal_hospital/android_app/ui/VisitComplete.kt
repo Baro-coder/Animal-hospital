@@ -42,6 +42,7 @@ class VisitComplete : AppCompatActivity() {
                         })
 
                 queue.add(stringRequest)
+                finish()
             }
         }
     }
