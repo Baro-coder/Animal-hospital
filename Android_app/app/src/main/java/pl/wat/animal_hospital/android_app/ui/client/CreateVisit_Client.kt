@@ -72,7 +72,7 @@ class CreateVisit_Client : AppCompatActivity() {
                     val clientMail = intent.getStringExtra("clientMail")
                     val doctorMail = intent.getStringExtra("doctorMail")
                     var time = dateBox.text.toString()
-                    time += "T${minutesBox.text}:${hoursBox.text}:00.000Z"
+                    time += "T${hoursBox.text}:${minutesBox.text}:00.000Z"
 
                     val url = "$BASEURL/visits"
                     val queue = Volley.newRequestQueue(this)
@@ -91,6 +91,7 @@ class CreateVisit_Client : AppCompatActivity() {
                                 Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show()
                     })
                     queue.add(request)
+                    finish()
                 }
             }
         }

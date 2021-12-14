@@ -68,9 +68,9 @@ class Register : AppCompatActivity() {
 
                     if (passwd != passwdConfirm)
                     {
-                        mailBox.setText("")
-                        nameBox.setText("")
-                        surnameBox.setText("")
+//                        mailBox.setText("")
+//                        nameBox.setText("")
+//                        surnameBox.setText("")
                         passwdBox.setText("")
                         passwdConfirmBox.setText("")
                         radioGroup!!.clearCheck()

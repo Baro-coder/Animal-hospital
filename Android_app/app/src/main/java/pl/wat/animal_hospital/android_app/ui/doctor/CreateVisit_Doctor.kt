@@ -91,6 +91,7 @@ class CreateVisit_Doctor : AppCompatActivity() {
                                 Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show()
                     })
                     queue.add(request)
+                    finish()
                 }
             }
         }

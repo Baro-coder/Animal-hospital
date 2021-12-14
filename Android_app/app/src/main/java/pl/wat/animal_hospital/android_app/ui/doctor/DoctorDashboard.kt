@@ -67,7 +67,7 @@ class DoctorDashboard : AppCompatActivity() {
                     strs[k] = strs[k].substring(0, 21)
                     if (strs[k+1] == "description:"){
                         complete.add(0)
-                        strs[k] = "${strs[k]}\t\t\t\t\t\t\t\t\t\t\t\t${resources.getString(R.string._fillTheVisitPL)}"
+                        strs[k] = "${strs[k]}\t\t\t\t\t\t\t\t\t\t\t\t${resources.getString(R.string._notConfirmed)}"
                     }
                     else{
                         complete.add(1)

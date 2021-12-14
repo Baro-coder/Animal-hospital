@@ -13,12 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_app">
         <activity android:name=".ui.client.VisitNotComplete"></activity>
-        <activity android:name=".ui.doctor.VisitComplete_Doctor" />
         <activity android:name=".ui.VisitComplete" />
-        <activity android:name=".ui.Visit_Not_Complete" />
         <activity android:name=".ui.doctor.CreateVisit_Doctor" />
         <activity android:name=".ui.client.CreateVisit_Client" />
-        <activity android:name=".ui.Visit_Complete" />
         <activity android:name=".ui.doctor.ChooseClient" />
         <activity android:name=".ui.client.ChooseDoctor" />
         <activity android:name=".ui.doctor.DoctorDashboard" />
